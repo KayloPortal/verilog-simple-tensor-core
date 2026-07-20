@@ -3,9 +3,10 @@
 **Mohammad Mahmoodi - 40435605**
 
 ## Abstract
-This project 
+This project features designing and building a simple version of "Tensor Core" hardware circuit from scratch using Verilog language, a component that is a vastly used for training Artificial intelligence models in deep learning. This project features a short dive into what is 'under the hood' of the hardware component that is used to run and train AI models everyday and reveals how they are designed and built and how they work.
 
 ## Introduction
+Matrix operations such as multiplication and addition happen millions of times when using or training artificial inteligence models. Normally, these operations are done by CPU or GPU. CPU & GPU are more like 'a jack of all trades', they are designed for general purpose usage to solve a vast variety of different problems, they are good at doing every task but master of none. Hence, desigining a hardware model that is designed specifically for calculating matrix operations, will result in a much faster circuit that is perfect for training AI models. "Tensor Core" is such a circuit. While CPU needs to fetch memory thousands of times to do giant matrix multiplications which will result in pressure on memory and more delays due to timings, Tensor core uses systolic arrays to fetch the data once and pump it through the network of processing elements and use it thousands of times without fetching the memory again. This results in much less pressure on the memory and less delay. This project features building a simple tensor core from scratch, using Verilog HDL.
 
 ## Methodology
 
@@ -65,7 +66,9 @@ A simple test were conducted to see how the circuit calulates the equation $A ×
 
 At first, `reset` signal was asserted and remained active two clock cycles, to set all "undefined values" to zeros, so we can start the process. At the same time, the data, which was the the matrices A & B & C, were put on the wires. One clock cycle after `reset` was set back to zero, `start` signal was asserted. The circuit started to put the data on the shift registers and finished this process after four cycles, and `isFinished` became active. 11 cycles after `isFinished` signal became active, the output became ready and valid, hence `isValid` became active at the beginning of the next clock cycle.
 
-## Concolusion
+## Conclusion
+
+This project is a clear example of the fact that more complexity is not always the best solution, and sometimes simple blocks that are built using simple theories can be more efficient and faster for a specific usage. Sometimes the goal is not to add more features, but is making the component more simple to unlock more efficiency, and have a component that is perfect and efficient for a specific usage. How tensor core is designed and how it operates is much more simple compared to a CPU, but it does matrix multiplication much faster.
 
 ## Appendix
 
